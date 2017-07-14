@@ -10,7 +10,12 @@
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Cart | Total items: #{ cart_items }", cart_path %></li>
+        <% ord_count = 0 %>
+        <% current_order.order_items.each do |ord| %>
+
+        <% ord_count = ord_count + ord.quantity %>
+        <% end %>
+        <li><%= link_to "Cart | Total items: #{ ord_count }", cart_path %></li>
         <li><%= link_to "See all products", products_path %></li>
         <% if current_user %>
           <li><%= current_user.email %></li>
