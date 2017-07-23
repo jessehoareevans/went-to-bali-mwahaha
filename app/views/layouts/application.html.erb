@@ -15,7 +15,7 @@
 
         <% ord_count = ord_count + ord.quantity %>
         <% end %>
-        <li><%= link_to "Cart | Total items: #{ ord_count }", cart_path %></li>
+        <li id = "nav_bar_items"><%= link_to "Cart | Total items: #{ ord_count }", cart_path %></li>
         <li>| Current Total: <%= number_to_currency current_order.total_price %> |</li>
         <li><%= link_to "See all products |", products_path %></li>
         <% if current_user %>
