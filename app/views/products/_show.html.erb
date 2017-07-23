@@ -1,0 +1,12 @@
+<div id="test" class="well">
+  <div class="col s12 m7">
+    <h2 class="header">  <%= @product.name %></h2>
+    <h2><%= image_tag ('kangaroo.jpg') %></h2>
+  </div>
+    <h3> <%= @product.name %></h3>
+    <h5><%= @product.price %></h5>
+    <p><%= @product.description %></p>
+</div>
+  <div class="">
+    <%= link_to 'Return to Products', products_path %>
+  </div>

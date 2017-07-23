@@ -1,39 +1,22 @@
+<div class="container-fluid">
 <h3>Products</h3>
-
-<% if current_user %>
-  <% if current_user.admin == true %>
-    <div class="well">
-      <h4>Add A New Product</h4>
-      <%= form_for @product do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-        <%= f.label :price %>
-        <%= f.number_field :price, :step => 0.01, :min => 0 %>
-
-        <%= f.submit %>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
-
-
 <div class="row">
-  <div class="section">
-  <% @products.each do |product| %>
-    <div class="col s4">
-      <h4><%= link_to product.name, product_path(product), id: "products_link", remote: true %></h4>
-      <%= image_tag "kangaroo.jpeg" %>
-      <h5></h5>
-      <%= form_for @order_item, id: 'order_item', remote: true do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, :min => 0 %>
-        <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+  <div class="col-md-4">
+    <% @products.each do |product| %>
+      <div class="col s4">
+        <h4><%= link_to product.name, product_path(product),id: "prod", remote: true%></h4>
+        <p><%= number_to_currency product.price %></p>
+        <div class='product_details' id='product_details_<%= product.id %>'>
+          <p><%= product.description %></p>
+        </div>
 
-      <% end %>
-
+        <%= form_for @order_item, remote: true do |f| %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <%= f.number_field :quantity,:min=>0, class: "cart_items" %>
+          <span class="btn-large blue waves-effect"><%= f.submit "Add to cart" %></span>
+        <% end %>
+      </div>
+    <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
 </div>
