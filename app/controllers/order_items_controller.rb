@@ -3,9 +3,15 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @item = @order.order_items.new(item_params)
-    @order.save
-    session[:order_id] = @order.id
-    redirect_to products_path
+
+    if @order.save
+      respond_to do |format|
+        flash[:notice] = "Task successfully added!"
+        format.html
+        format.js
+      else
+        flash[:alert] = "There was an issue placing your order"
+      end
   end
 
   def update
@@ -20,8 +26,11 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.find(params[:id])
     @item.destroy
     @order.save
-    redirect_to cart_path
-  end
+    flash[:alert] = "This product has been removed from your cart"
+    respond_to do |format|
+      format.html
+      format.js
+    end
 
   private
 

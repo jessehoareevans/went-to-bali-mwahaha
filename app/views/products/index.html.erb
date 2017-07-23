@@ -23,8 +23,9 @@
   <div class="section">
   <% @products.each do |product| %>
     <div class="col s4">
-      <h4><%= link_to product.name, product_path(product) %></h4>
+      <h4><%= link_to product.name, product_path(product), id: "products_link", remote: true %></h4>
       <%= image_tag "kangaroo.jpeg" %>
+      <h5></h5>
       <%= form_for @order_item, id: 'order_item', remote: true do |f| %>
         <%= f.hidden_field :product_id, value: product.id %>
         <%= f.number_field :quantity, :min => 0 %>
