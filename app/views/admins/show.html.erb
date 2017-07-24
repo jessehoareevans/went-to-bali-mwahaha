@@ -1,5 +1,6 @@
-<h3>Administrator</h3>
+<h1>Administrator <%= current_user.email %></h1>
 
+<%= link_to 'Add a New Product', new_product_path, class: 'btn',id: "new_link", remote: true %>
 <h4>Products</h4>
 <% @products.each do |product| %>
   <div class='row'>
@@ -11,5 +12,3 @@
     </div>
   </div>
 <% end %>
-
-<%= link_to 'Add a New Product', new_product_path, class: 'btn',id: "new_link", remote: true %>

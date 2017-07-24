@@ -15,9 +15,13 @@ Users can remove items from the shopping cart without a page reload. The "delete
 ## Refactoring
   - Add flash messages for when users sign in, sign up and sign out
 
-  -  User cannot add negative amount of products
+  -  Ensure that users can't order a negative number of items.
 
-  - 
+  - Add admin links to navbar so admins can easily add, update and delete products
+
+  - Add product update and delete functionality for admins.
+
+  - Add admin flash messages for adding, updating and deleting products.
 
 ```
 $ git clone https://github.com/jessehoareevans/went-to-bali-mwahaha
