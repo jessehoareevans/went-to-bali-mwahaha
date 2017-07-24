@@ -1,0 +1,15 @@
+<h3>Administrator</h3>
+
+<h4>Products</h4>
+<% @products.each do |product| %>
+  <div class='row'>
+    <div class='col-md-6'>
+      <%= link_to product.name, product_path(product) %>
+    </div>
+    <div class='col-md-6'>
+      <%= link_to 'Update', edit_product_path(product) %> | <%= link_to 'Delete', product_path(product), method: 'delete' %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Add a New Product', new_product_path, class: 'btn',id: "new_link", remote: true %>

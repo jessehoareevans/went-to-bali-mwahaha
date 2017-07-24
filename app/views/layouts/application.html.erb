@@ -10,17 +10,18 @@
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if current_user && current_user.admin %>
+        <li><%= link_to 'Admin', admin_path %></li>
+      <% end %>
         <% ord_count = 0 %>
         <% current_order.order_items.each do |ord| %>
 
         <% ord_count = ord_count + ord.quantity %>
         <% end %>
         <li id = "nav_bar_items"><%= link_to "Cart | Total items: #{ ord_count }", cart_path %></li>
-        <li>| Current Total: <%= number_to_currency current_order.total_price %> |</li>
         <li><%= link_to "See all products |", products_path %></li>
         <% if current_user %>
           <li><%= current_user.email %></li>
-          <li><%= link_to "All Users", users_path %></li>
           <li><%= link_to "Sign out", '/sign_out' %></li>
         <% else %>
           <li><%= link_to "Sign up", 'sign_up' %></li>

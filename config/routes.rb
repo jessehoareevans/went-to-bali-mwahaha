@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :order_items
   resources :users
   resource :cart, only: [:show]
+  resource :admin
 
   get 'finalize' => 'carts#finalize'
 

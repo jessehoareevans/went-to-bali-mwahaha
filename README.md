@@ -12,6 +12,13 @@ Users can add products to their shopping cart from the index page with AJAX. The
 Users can click on a product and show/hide the product detail using AJAX. The product detail should include an image (either Paperclip or an image link), the description, and any other fields you choose to add.
 Users can remove items from the shopping cart without a page reload. The "delete" link should result in the item being removed from the shopping cart and the total price being updated.
 
+## Refactoring
+  - Add flash messages for when users sign in, sign up and sign out
+
+  -  User cannot add negative amount of products
+
+  - 
+
 ```
 $ git clone https://github.com/jessehoareevans/went-to-bali-mwahaha
 $ cd went-to-bali-mwahaha
