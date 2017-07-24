@@ -23,6 +23,14 @@ Users can remove items from the shopping cart without a page reload. The "delete
 
   - Add admin flash messages for adding, updating and deleting products.
 
+  - Add product validations.
+
+  - Add password validations to ensure a user's password is sufficiently complex.
+
+## Admin Route
+
+  - When signing in use email "manchester@united.com"
+  - The password is "arethegreatest"
 ```
 $ git clone https://github.com/jessehoareevans/went-to-bali-mwahaha
 $ cd went-to-bali-mwahaha
